@@ -1,12 +1,12 @@
 :root {
-    --color-primary: #3b82f6; /* Adjust to match the exact blue */
+    --color-primary: #3b82f6;
     --color-primary-light: #60a5fa;
     --color-text-dark: #343F52;
     --color-text-muted: #6b7280;
     --color-bg: #F0F8FE;
     --bg-gradient-top: linear-gradient(to bottom, #F0F8FE 0%, rgba(255, 255, 255, 0) 100%);
     --bg-gradient-bottom: linear-gradient(to top, #F0F8FE 0%, rgba(255, 255, 255, 0) 100%);
-    --font-main: "Urbanist", sans-serif;
+    --font-main: "Urbanist";
     --transition: all 0.3s ease;
 }
 
@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: var(--font-main);
+    font-family: var(--font-main), serif;
     color: var(--color-text-dark);
     line-height: 1.6;
     overflow-x: hidden;
@@ -98,9 +98,7 @@ body {
 }
 
 .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    display: flex;
     align-items: center;
     padding: 80px 20px;
 }
@@ -120,6 +118,10 @@ body {
     font-size: 1.125rem;
     margin-bottom: 32px;
     max-width: 400px;
+}
+
+.hero__illustration {
+    aspect-ratio: 723/505;
 }
 
 .placeholder-box {
@@ -227,9 +229,9 @@ body {
 }
 
 .services__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .service-card {
@@ -321,8 +323,6 @@ body {
 .placeholder-avatar {
     width: 100px;
     height: 100px;
-    background-color: #e5e7eb;
-    border-radius: 50%;
     margin: 0 auto 20px;
 }
 
@@ -364,7 +364,6 @@ body {
         flex-direction: column;
         gap: 20px;
     }
-
 }
 
 
