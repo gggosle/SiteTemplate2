@@ -1,0 +1,321 @@
+/* Base Variables & Reset */
+:root {
+    --color-primary: #3b82f6; /* Adjust to match the exact blue */
+    --color-primary-light: #60a5fa;
+    --color-text-dark: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-bg-light: #f9fafb;
+    --color-bg-dark: #111827;
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.subtitle {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.text-highlight {
+    color: var(--color-primary);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 20px;
+}
+
+.header__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.header__nav {
+    display: flex;
+    gap: 32px;
+}
+
+.header__link {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.header__link:hover {
+    color: var(--color-text-dark);
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__login {
+    font-weight: 600;
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.hero__title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.hero__text {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    margin-bottom: 32px;
+    max-width: 400px;
+}
+
+.placeholder-box {
+    width: 100%;
+    height: 400px;
+    background-color: #e5e7eb;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+}
+
+/* --- Logos Section --- */
+.logos {
+    text-align: center;
+    padding: 40px 20px 80px;
+}
+
+.logos__text {
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+}
+
+.logos__grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    opacity: 0.6;
+}
+
+/* --- Services Section (Dark Gradient) --- */
+.bg-dark-gradient {
+    background: linear-gradient(180deg, #4b5563 0%, #111827 100%);
+    color: white;
+    padding: 100px 0;
+    /* Note: To achieve the wavy top/bottom, you would typically use an SVG background image or an SVG divider element here */
+}
+
+.services__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.services__title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.placeholder-icon {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.service-card__title {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.service-card__text {
+    color: #9ca3af;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.service-card__link {
+    color: var(--color-primary-light);
+    font-weight: 600;
+}
+
+/* --- Team Section --- */
+.team {
+    padding: 100px 20px;
+}
+
+.team__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.team__header {
+    max-width: 400px;
+}
+
+.team__title {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.team__text {
+    color: var(--color-text-muted);
+}
+
+.team__stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat__number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.stat__label {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.team__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.team-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.placeholder-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.team-card__name {
+    font-size: 1.125rem;
+    margin-bottom: 4px;
+}
+
+.team-card__role {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero__text {
+        margin: 0 auto 32px;
+    }
+    .team__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header__nav, .header__login {
+        display: none; /* In a real build, add a hamburger menu here */
+    }
+    .team__grid {
+        grid-template-columns: 1fr;
+    }
+    .team__stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
