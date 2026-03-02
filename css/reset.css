@@ -54,6 +54,7 @@ table {
 img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
+	height: auto;
 }
 input, button, textarea, select {
     font: inherit;
@@ -67,3 +68,4 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
