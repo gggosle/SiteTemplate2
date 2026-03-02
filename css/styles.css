@@ -1,4 +1,5 @@
 :root {
+    /* Colors */
     --color-primary: #5EB9F0;
     --color-primary-light: #E5F4FD;
     --color-text-dark: #343F52;
@@ -11,7 +12,31 @@
     --bg-default: #FEFEFE;
     --bg-gradient-top: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     --bg-gradient-bottom: linear-gradient(to top, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+
+    /* Typography - Font Family */
     --font-main: "Urbanist";
+
+    /* Typography - Font Sizes */
+    --fs-default: 17px;
+    --fs-hero-title: 54px;
+    --fs-section-title: 42px;
+    --fs-stat-number: 41px;
+    --fs-service-card-title: 23px;
+    --fs-step-card-number: 22px;
+    --fs-step-card-title: 20px;
+    --fs-team-card-name: 20px;
+    --fs-footer-col-title: 20px;
+    --fs-author-name: 19px;
+    --fs-accordion-title: 18px;
+    --fs-subtitle: 16px;
+    --fs-team-card-role: 14px;
+    --fs-project-card-category: 14px;
+
+    /* Typography - Font Weights */
+    --fw-medium: 500;
+    --fw-semibold: 600;
+
+    /* Transitions */
     --transition: all 0.3s ease;
 }
 
@@ -40,11 +65,18 @@ body {
     padding: 100px 20px;
 }
 
+.title {
+    font-size: var(--fs-section-title);
+    font-weight: var(--fw-semibold);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
 .subtitle {
     color: var(--color-primary);
     text-transform: uppercase;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--fs-subtitle);
+    font-weight: var(--fw-semibold);
     letter-spacing: 1px;
     display: block;
     margin-bottom: 0.5rem;
@@ -58,7 +90,7 @@ body {
     display: inline-block;
     padding: 10px 24px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     transition: var(--transition);
     cursor: pointer;
 }
@@ -93,7 +125,7 @@ body {
 .header__link {
     font-size: 0.95rem;
     color: var(--color-text-muted);
-    font-weight: 500;
+    font-weight: var(--fw-semibold);
 }
 
 .header__link:hover {
@@ -107,7 +139,7 @@ body {
 }
 
 .header__login {
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
 }
 
 .hero {
@@ -121,9 +153,7 @@ body {
 }
 
 .hero__title {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 24px;
+    font-size: var(--fs-hero-title);
 }
 
 .hero__text {
@@ -239,10 +269,6 @@ body {
     margin: 0 auto 60px;
 }
 
-.services__title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-}
 
 .services__grid {
     display: flex;
@@ -260,19 +286,18 @@ body {
 }
 
 .service-card__title {
-    font-size: 1.25rem;
+    font-size: var(--fs-service-card-title);
     margin-bottom: 12px;
 }
 
 .service-card__text {
     color: var(--color-text-muted);
     margin-bottom: 20px;
-    font-size: 0.95rem;
 }
 
 .service-card__link {
     color: var(--color-primary-light);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
 }
 
 .team {
@@ -292,11 +317,6 @@ body {
     max-width: 400px;
 }
 
-.team__title {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-}
-
 .team__text {
     color: var(--color-text-muted);
 }
@@ -312,8 +332,8 @@ body {
 
 .stat__number {
     display: block;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--fs-stat-number);
+    font-weight: var(--fw-semibold);
     color: var(--color-text-dark);
 }
 
@@ -342,13 +362,15 @@ body {
 }
 
 .team-card__name {
-    font-size: 1.125rem;
+    font-size: var(--fs-team-card-name);
     margin-bottom: 4px;
 }
 
 .team-card__role {
     color: var(--color-text-muted);
-    font-size: 0.875rem;
+    font-size: var(--fs-team-card-role);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
 }
 
 @media (max-width: 900px) {
@@ -381,32 +403,12 @@ body {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- Strategy Section --- */
 .strategy {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     padding: 100px 20px;
     align-items: center;
-}
-
-.strategy__title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 24px;
 }
 
 .strategy__text {
@@ -435,7 +437,6 @@ body {
     transition: var(--transition);
 }
 
-/* Offsets the middle card slightly to the right to match the design */
 .step-card--middle {
     margin-left: 80px;
 }
@@ -446,8 +447,8 @@ body {
 .step-card__number {
     background: #E8F2FF; /* Light blue */
     color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1.125rem;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-step-card-number);
     min-width: 48px;
     height: 48px;
     display: flex;
@@ -457,7 +458,7 @@ body {
 }
 
 .step-card__title {
-    font-size: 1.125rem;
+    font-size: var(--fs-step-card-title);
     margin-bottom: 8px;
 }
 
@@ -466,18 +467,12 @@ body {
     font-size: 0.95rem;
 }
 
-/* --- Solutions / Accordion Section --- */
+
 .solutions__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
-}
-
-.solutions__title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 40px;
 }
 
 .accordion {
@@ -505,8 +500,8 @@ body {
 }
 
 .accordion__title {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: var(--fs-accordion-title);
+    font-weight: var(--fw-semibold);
 }
 
 .accordion__body {
@@ -517,7 +512,11 @@ body {
 }
 
 .accordion__item--active .accordion__header {
-    color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.accordion__item--active .accordion__icon {
+    rotate: 180deg;
 }
 
 .accordion__item--active .accordion__body {
@@ -568,10 +567,6 @@ body {
     margin-bottom: 60px;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-}
 
 .projects__grid {
     display: flex;
@@ -608,16 +603,16 @@ body {
 }
 
 .project-card__title {
-    font-size: 1.25rem;
+    font-size: var(--fs-service-card-title);
     margin-bottom: 8px;
 }
 
 .project-card__category {
     color: var(--color-text-muted);
-    font-size: 0.875rem;
+    font-size: var(--fs-project-card-category);
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
 }
 
 .projects__nav {
@@ -686,7 +681,7 @@ body {
 }
 
 .author-name {
-    font-size: 1rem;
+    font-size: var(--fs-author-name);
     font-weight: 700;
     margin-bottom: 2px;
 }
@@ -722,12 +717,6 @@ body {
     align-items: start;
 }
 
-.faq__title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 24px;
-}
-
 .faq__text {
     color: #9ca3af;
     margin-bottom: 32px;
@@ -742,9 +731,8 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer__banner-title {
+.footer__title {
     color: var(--color-text-light);
-    font-size: 2rem;
     max-width: 600px;
 }
 
@@ -783,7 +771,7 @@ body {
 
 .footer__col-title {
     color: var(--color-text-light);
-    font-size: 1.125rem;
+    font-size: var(--fs-footer-col-title);
     margin-bottom: 24px;
 }
 
