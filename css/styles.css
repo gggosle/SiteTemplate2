@@ -16,6 +16,7 @@
     --bg-gradient-top: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     --bg-gradient-bottom: linear-gradient(to top, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     --bg-input-dark: rgba(255, 255, 255, 0.05);
+    --shadow-default: 0 10px 30px rgba(0, 0, 0, 0.05);
 
 
     --font-main: "Urbanist";
@@ -68,7 +69,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 6rem 1.3rem;
+    padding: 5rem 1.3rem;
 }
 
 .title {
@@ -146,7 +147,6 @@ body {
 .hero {
     display: flex;
     align-items: center;
-    padding: 5rem 1.3rem;
 }
 
 .hero__content {
@@ -271,10 +271,6 @@ body {
     font-weight: var(--fw-semibold);
 }
 
-.team {
-    padding: 6rem 1.3rem;
-}
-
 .team__top {
     display: flex;
     justify-content: space-between;
@@ -317,7 +313,7 @@ body {
 .team-card {
     padding: 1.9rem 1.3rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-default);
 }
 
 .team-card__img {
@@ -360,7 +356,7 @@ body {
     align-items: flex-start;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-default);
     gap: 1.3rem;
     transition: var(--transition);
 }
@@ -403,10 +399,6 @@ body {
     gap: 1rem;
 }
 
-.faq__accordion {
-    gap: 4rem;
-}
-
 .accordion__item {
     display: grid;
     grid-template-columns: 7% 1fr;
@@ -416,7 +408,7 @@ body {
 }
 
 .accordion__item--bordered {
-    box-shadow: 0 1px 50px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-default);
     padding: 1.3rem;
 }
 
@@ -580,7 +572,7 @@ body {
 .testimonial-card {
     padding: 3rem 1.9rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow-default);
     margin-bottom: 1.9rem;
 }
 
@@ -728,6 +720,7 @@ body {
     .hero {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
     }
     .hero__content {
         max-width: 100%;
@@ -739,6 +732,12 @@ body {
     .logos__grid {
         flex-wrap: wrap;
         justify-content: center;
+    }
+    .solutions__illustration {
+        display: flex;
+        justify-content: center;
+        max-width: 500px;
+
     }
     .team__grid {
         grid-template-columns: repeat(2, 1fr);
@@ -762,6 +761,9 @@ body {
 
     html {
         font-size: 14px;
+    }
+    .logos__img {
+        height: auto;
     }
     .projects__grid {
         grid-template-columns: 1fr;
@@ -790,9 +792,7 @@ body {
     .logos__grid {
         gap: 0.5rem;
     }
-    .logos__img {
-        height: auto;
-    }
+
     .team__grid {
         grid-template-columns: 1fr;
     }
