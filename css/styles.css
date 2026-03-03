@@ -565,6 +565,7 @@ body {
 .project-card__img-wrapper {
     border-radius: 12px;
     margin-bottom: 2.5rem;
+    width: 100%;
     overflow: hidden;
     aspect-ratio: 63/41;
 }
