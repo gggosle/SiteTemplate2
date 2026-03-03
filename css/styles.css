@@ -1,17 +1,17 @@
 :root {
     --color-primary: #5EB9F0;
-    --color-primary-light: #E5F4FD;
-    --color-text-dark: #343F52;
+    --color-primary-muted: #E5F4FD;
+    --color-text-contrast: #343F52;
     --color-text-muted: #60697B;
     --color-text-light-gray: #AAB0BC;
-    --color-text-dark-bg-gray: #CACACA;
+    --color-text-inverted: #CACACA;
     --color-text-button: #FFFFFF;
     --color-text-button-hover: var(--color-primary);
-    --color-text-dark-bg-main: #FFFFFF;
+    --color-text-inverted-contrast: #FFFFFF;
     --color-stars: #FCC032;
     --bg-gradient-start: #F0F8FE;
     --bg-gradient-end: #FFFFFF;
-    --bg-dark: #343F52;
+    --bg-inverted: #343F52;
     --bg-default: #FFFFFF;
     --bg-gradient-top: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     --bg-gradient-bottom: linear-gradient(to top, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
@@ -43,6 +43,33 @@
     --fw-semibold: 600;
 
     --transition: all 0.3s ease;
+    --wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C320,100 420,0 740,50 C1060,100 1120,0 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E");
+
+}
+
+[data-theme="dark"] {
+    --color-primary: #5EB9F0;
+    --color-primary-muted: #1A3143;
+
+    --color-text-contrast: #F8FAFC;
+    --color-text-muted: #94A3B8;
+    --color-text-light-gray: #475569;
+    --color-text-inverted: var(--color-text-muted);
+
+    --color-text-button: #FFFFFF;
+    --color-text-button-hover: var(--color-primary);
+    --color-text-inverted-contrast: var(--color-text-contrast);
+
+    --bg-default: #0F172A;
+    --bg-gradient-start: #1E293B;
+    --bg-gradient-end: #0F172A;
+    --bg-inverted: var(--bg-gradient-start);
+
+    --bg-gradient-top: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    --bg-gradient-bottom: linear-gradient(to top, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+
+    --bg-input-dark: rgba(255, 255, 255, 0.08);
+    --shadow-default: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -59,7 +86,7 @@ body {
     font-family: var(--font-main), serif;
     font-size: var(--fs-default);
     font-weight: var(--fw-medium);
-    color: var(--color-text-dark);
+    color: var(--color-text-contrast);
     background-color: var(--bg-default);
     line-height: 1.6;
     overflow-x: hidden;
@@ -112,7 +139,7 @@ body {
 }
 
 .btn--primary:hover {
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary-muted);
     color: var(--color-text-button-hover);
 }
 
@@ -142,7 +169,7 @@ body {
     display: block;
     width: 20px;
     height: 2px;
-    background-color: var(--color-text-dark);
+    background-color: var(--color-text-contrast);
     position: absolute;
     transition: var(--transition);
 }
@@ -199,7 +226,7 @@ body {
 }
 
 .header__link:hover {
-    color: var(--color-text-dark);
+    color: var(--color-text-contrast);
 }
 
 .header__actions {
@@ -274,13 +301,13 @@ body {
     background: var(--bg-gradient-bottom);
 }
 
-.bg-dark {
-    background-color: var(--bg-dark);
-    color: var(--color-text-dark-bg-gray);
+.bg-inverted {
+    background-color: var(--bg-inverted);
+    color: var(--color-text-inverted);
 }
 
-.bg-dark .title{
-    color: var(--color-text-dark-bg-main);
+.bg-inverted .title{
+    color: var(--color-text-inverted-contrast);
 }
 
 .custom-shape-divider {
@@ -289,13 +316,41 @@ body {
     line-height: 0;
 }
 
-.wave {
+.wave-before::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
     width: 100%;
-    margin-bottom: -1px;
+    height: 60px;
+    background-color: var(--bg-gradient-start);
+    -webkit-mask-image: var(--wave-mask);
+    mask-image: var(--wave-mask);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
 }
 
-.wave--top {
-    background-color: var(--bg-gradient-end);
+.wave-after::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--bg-gradient-start);
+    -webkit-mask-image: var(--wave-mask);
+    mask-image: var(--wave-mask);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    transform: scaleY(-1);
+}
+
+.bg-inverted.wave-before::before {
+    background-color: var(--bg-inverted);
+}
+
+.services {
+    position: relative;
 }
 
 .services__header {
@@ -361,7 +416,7 @@ body {
     display: block;
     font-size: var(--fs-stat-number);
     font-weight: var(--fw-semibold);
-    color: var(--color-text-dark);
+    color: var(--color-text-contrast);
 }
 
 .stat__icon {
@@ -433,7 +488,7 @@ body {
 }
 
 .step-card__number {
-    background: var(--color-primary-light);
+    background: var(--color-primary-muted);
     color: var(--color-primary);
     font-weight: var(--fw-semibold);
     font-size: var(--fs-step-card-number);
@@ -448,6 +503,10 @@ body {
 .step-card__title {
     font-size: var(--fs-step-card-title);
     margin-bottom: 8px;
+}
+
+.solutions {
+    position: relative;
 }
 
 .solutions__inner {
@@ -513,7 +572,7 @@ body {
     justify-content: center;
     width: 60px;
     height: 60px;
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary-muted);
     border-radius: 50%;
     margin: 0 auto 1rem;
 
@@ -605,7 +664,7 @@ body {
     height: 40px;
     border-radius: 50%;
     border: none;
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary-muted);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -621,6 +680,9 @@ body {
     background-color: var(--color-primary);
 }
 
+.testimonials {
+    position: relative;
+}
 
 .testimonials__masonry {
     column-count: 3;
@@ -677,6 +739,11 @@ body {
     margin-bottom: 2rem;
 }
 
+.footer {
+    position: relative;
+
+}
+
 .footer__banner {
     display: flex;
     justify-content: space-between;
@@ -715,7 +782,7 @@ body {
 }
 
 .footer__socials a:hover {
-    color: var(--color-primary-light);
+    color: var(--color-primary-muted);
 }
 
 .footer__col-title {
@@ -735,7 +802,7 @@ body {
 }
 
 .footer__link:hover {
-    color: var(--color-primary-light);
+    color: var(--color-primary-muted);
 }
 
 .footer__form {
@@ -750,7 +817,7 @@ body {
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: var(--bg-input-dark);
-    color: var(--color-text-dark-bg-main);
+    color: var(--color-text-inverted-contrast);
 }
 
 .footer__input::placeholder {
