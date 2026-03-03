@@ -148,6 +148,40 @@ body {
     color: var(--color-text-button-hover);
 }
 
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion__item {
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion__item--bordered {
+    box-shadow: var(--shadow-default);
+    padding: 1.3rem;
+}
+
+.accordion__header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.accordion__title {
+    font-size: var(--fs-accordion-title);
+    font-weight: var(--fw-semibold);
+}
+
+.accordion__item--active .accordion__title {
+    color: var(--color-primary);
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -223,20 +257,9 @@ body {
 }
 
 
-.header__list {
-    display: flex;
+.header__accordion {
+    flex-direction: row;
     gap: 2rem;
-}
-
-.header__link {
-    display: flex;
-    gap: 3px;
-    font-weight: var(--fw-semibold);
-    align-items: center;
-}
-
-.header__link:hover {
-    color: var(--color-text-contrast);
 }
 
 .header__actions {
@@ -526,55 +549,7 @@ body {
     align-items: center;
 }
 
-.accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
 
-.accordion__item {
-    display: grid;
-    grid-template-columns: 7% 1fr;
-    row-gap: 0.5rem;
-    align-items: center;
-    cursor: pointer;
-}
-
-.accordion__item--bordered {
-    box-shadow: var(--shadow-default);
-    padding: 1.3rem;
-}
-
-.accordion__header {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.accordion__title {
-    font-size: var(--fs-accordion-title);
-    font-weight: var(--fw-semibold);
-}
-
-.accordion__text {
-    grid-column: 2;
-
-    display: none;
-}
-
-.accordion__item--active .accordion__title {
-    color: var(--color-primary);
-}
-
-.accordion__item--active .accordion__icon {
-    rotate: 180deg;
-}
-
-.accordion__item--active .accordion__text {
-    display: block;
-}
 
 .placeholder-icon-small {
     display: flex;
@@ -868,7 +843,7 @@ body {
         gap: 1rem;
     }
 
-    .header__list {
+    .header__accordion {
         flex-direction: column;
         gap: 1.5rem;
     }
