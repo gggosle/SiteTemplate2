@@ -70,6 +70,10 @@
 
     --bg-input-dark: rgba(255, 255, 255, 0.08);
     --shadow-default: 0 10px 30px rgba(0, 0, 0, 0.5);
+    .header__logo, .logos__img {
+        filter: invert(0.3);
+    }
+    filter: brightness(0.8);
 }
 
 * {
@@ -147,10 +151,15 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     padding: 1.5rem 1.3rem;
     position: relative;
     z-index: 1000;
+}
+
+.header__btn {
+    margin-right: auto;
 }
 
 .burger {
