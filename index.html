@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<header class="header container">
+<header id="header" class="header container">
     <div class="header__logo"><img src="resources/logo.svg" width="134" height="26" alt="Sandbox"></div>
     <button id="theme-btn" class="header__btn btn--primary btn far fa-moon" aria-label="Toggle dark mode"></button>
     <button class="menu__burger burger" aria-label="Toggle menu">
@@ -22,13 +22,14 @@
 
     <div class="header__menu">
         <nav class="header__nav">
-            <ul class="header__accordion accordion">
-                <li><details name="header__accordion" class="accordion__item"> <summary class="accordion__header">Demos <span class="accordion__arrow"></span></summary></details></li>
-                <li><details name="header__accordion" class="accordion__item"> <summary class="accordion__header">Pages<span class="accordion__arrow"></span></summary></details></li>
-                <li><details name="header__accordion" class="accordion__item"> <summary class="accordion__header">Projects<span class="accordion__arrow"></span></summary></details></li>
-                <li><details name="header__accordion" class="accordion__item"> <summary class="accordion__header">Blog<span class="accordion__arrow"></span></summary></details></li>
-                <li><details name="header__accordion" class="accordion__item"> <summary class="accordion__header">Blocks<span class="accordion__arrow"></span></summary></details></li>
-                <li><details name="header__accordion" class="accordion__item"> <summary class="accordion__header">Documentation<span class="accordion__arrow"></span></summary></details></li>
+            <ul class="header__nav-list">
+                <li><a href="#services" class="header__nav-link">Services</a></li>
+                <li><a href="#strategy" class="header__nav-link">Strategy</a></li>
+                <li><a href="#solutions" class="header__nav-link">Solutions</a></li>
+                <li><a href="#team" class="header__nav-link">Team</a></li>
+                <li><a href="#projects" class="header__nav-link">Projects</a></li>
+                <li><a href="#testimonials" class="header__nav-link">Testimonials</a></li>
+                <li><a href="#faq" class="header__nav-link">FAQ</a></li>
             </ul>
         </nav>
         <div class="header__actions">
@@ -41,7 +42,7 @@
 <script src="js/main.js"></script>
 
 <main>
-    <section class="hero container">
+    <section id="hero" class="hero container">
         <div class="hero__content">
             <h1 class="hero__title title">A digital agency specializing on <span
                     class="text-highlight">mobile design</span></h1>
@@ -95,7 +96,7 @@
         </div>
     </section>
 
-    <section class="services bg-gradient--top wave-before">
+    <section id="services" class="services bg-gradient--top wave-before">
         <div class="container">
             <div class="services__header section-header text-center">
                 <span class="subtitle">WHAT WE DO</span>
@@ -136,7 +137,7 @@
         </div>
     </section>
 
-    <section class="strategy container">
+    <section id="strategy" class="strategy container">
         <div class="strategy__content">
             <span class="subtitle">Our Strategy</span>
             <h2 class="strategy__title title">Here are 3 working steps to organize our projects.</h2>
@@ -172,7 +173,7 @@
         </div>
     </section>
 
-    <section class="solutions bg-gradient--bottom wave-after">
+    <section id="solutions" class="solutions bg-gradient--bottom wave-after">
         <div class="container solutions__inner">
             <div class="solutions__illustration">
                 <img src="resources/solutions.svg" width="724" height="552" alt="Business solutions illustration">
@@ -206,7 +207,7 @@
 
     </section>
 
-    <section class="team container">
+    <section id="team" class="team container">
         <div class="team__top">
             <div class="team__header">
                 <span class="subtitle">Company Facts</span>
@@ -317,7 +318,7 @@
         </div>
     </section>
 
-    <section class="projects">
+    <section id="projects" class="projects">
         <div class="section-header text-center container container--element-top">
             <span class="subtitle">Latest Projects</span>
             <h2 class="projects__title title">Check out some of our awesome projects <br>with creative ideas and great
@@ -372,7 +373,7 @@
         </div>
     </section>
 
-    <section class="testimonials bg-gradient--top wave-before">
+    <section id="testimonials" class="testimonials bg-gradient--top wave-before">
         <div class="custom-shape-divider">
         </div>
         <div class="container">
@@ -471,7 +472,7 @@
         </div>
     </section>
 
-    <section class="faq container">
+    <section id="faq" class="faq container">
         <div class="faq__content">
             <span class="subtitle">FAQ</span>
             <h2 class="faq__title title">If you don't see an answer to your question, you can send us an email from our

@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.nav-btn.next');
     const themeBtn = document.getElementById("theme-btn");
     const backToTopBtn = document.getElementById("back-to-top");
+    const navLinks = document.querySelectorAll('.header__nav-link');
 
     let isSliderAnimating = false;
     let autoScrollTimer;
 
-    function openMenu() {
+    function toggleMenu() {
         burger.classList.toggle('burger--active');
         nav.classList.toggle('header__menu--open');
     }
@@ -110,7 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    burger.addEventListener('click', openMenu);
+    function handleNavLinkClick(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            if (nav.classList.contains('header__menu--open')) {
+                toggleMenu();
+            }
+
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    burger.addEventListener('click', toggleMenu);
 
     nextBtn.addEventListener('click', slideToTheLeft);
 
@@ -121,6 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
 
     backToTopBtn.addEventListener('click', scrollToTop);
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', handleNavLinkClick);
+    });
 
     startAutoScroll();
 });
