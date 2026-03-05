@@ -1201,7 +1201,7 @@ body {
     }
 
     .projects__grid {
-        width: calc(100vw * 4);
+        width: calc(100vw * 3.9);
     }
 }
 
