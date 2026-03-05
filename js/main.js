@@ -8,6 +8,72 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.toggle('header__menu--open');
         });
     }
+
+    const grid = document.querySelector('.projects__grid');
+    const prevBtn = document.querySelector('.nav-btn.prev');
+    const nextBtn = document.querySelector('.nav-btn.next');
+
+    let isAnimating = false;
+
+    function getMoveDistance() {
+        const cardWidth = grid.children[0].offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(grid).gap) || 0;
+        return cardWidth + gap;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        console.log(isAnimating)
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const moveDistance = getMoveDistance();
+
+        const centerClone = grid.children[1].cloneNode(true);
+
+        grid.style.transition = 'transform 0.4s ease-in-out';
+
+
+        grid.style.transform = `translateX(-${moveDistance}px)`;
+
+
+        grid.addEventListener('transitionend', function handleNext() {
+            grid.removeEventListener('transitionend', handleNext);
+
+            grid.appendChild(centerClone);
+            grid.firstElementChild.remove();
+
+            grid.style.transition = 'none';
+            grid.style.transform = 'translateX(0)';
+
+            isAnimating = false;
+        });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const moveDistance = getMoveDistance();
+
+        const centerClone = grid.children[2].cloneNode(true);
+        grid.prepend(centerClone);
+
+        grid.style.transition = 'none';
+        grid.style.transform = `translateX(-${moveDistance}px)`;
+        grid.lastElementChild.remove();
+
+        grid.offsetHeight;
+
+        grid.style.transition = 'transform 0.4s ease-in-out';
+        grid.style.transform = 'translateX(0)';
+
+        grid.addEventListener('transitionend', function handlePrev() {
+            grid.removeEventListener('transitionend', handlePrev);
+            isAnimating = false;
+        });
+    });
+
+
 });
 
 
@@ -18,3 +84,6 @@ themeBtn.onclick = () => {
     const newTheme = currentTheme === "dark" ? "" : "dark";
     document.documentElement.setAttribute("data-theme", newTheme);
 }
+
+
+

@@ -317,14 +317,23 @@
         </div>
     </section>
 
-    <section class="projects container">
-        <div class="section-header text-center">
+    <section class="projects">
+        <div class="section-header text-center container container--element-top">
             <span class="subtitle">Latest Projects</span>
             <h2 class="projects__title title">Check out some of our awesome projects <br>with creative ideas and great
                 design.</h2>
         </div>
 
+        <div class="container-left-spill">
         <div class="projects__grid">
+            <div class="project-card">
+                <div class="project-card__img-wrapper">
+                    <img src="resources/carrousel3.svg" alt="Stationary Project" class="project-card__img" width="630"
+                         height="410">
+                </div>
+                <h4 class="project-card__title">Tortor Tellus Cursus</h4>
+                <span class="project-card__category">Stationary</span>
+            </div>
             <div class="project-card">
                 <div class="project-card__img-wrapper">
                     <img src="resources/carrousel1.svg" alt="Mobile Design Project" class="project-card__img"
@@ -334,7 +343,7 @@
                 <span class="project-card__category">Mobile Design</span>
             </div>
 
-            <div class="project-card project-card--active">
+            <div class="project-card">
                 <div class="project-card__img-wrapper">
                     <img src="resources/carrousel2.svg" alt="Web Design Project" class="project-card__img" width="630"
                          height="410">
@@ -351,9 +360,11 @@
                 <h4 class="project-card__title">Tortor Tellus Cursus</h4>
                 <span class="project-card__category">Stationary</span>
             </div>
+
+        </div>
         </div>
 
-        <div class="projects__nav">
+        <div class="projects__nav container container--element-bottom">
             <button class="nav-btn prev" aria-label="Previous project"><img src="resources/arrow-white.svg" width="12"
                                                                             height="12" alt="Previous"></button>
             <button class="nav-btn next" aria-label="Next project"><img src="resources/arrow-white.svg" width="12"
