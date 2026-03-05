@@ -499,10 +499,6 @@ body {
     max-width: var(--width-max-hero-text);
 }
 
-.hero__illustration {
-    aspect-ratio: 723/505;
-}
-
 .logos {
     text-align: center;
     padding: 3rem 1.3rem 5rem;
