@@ -287,7 +287,7 @@ body {
     font-size: var(--fs-subtitle);
 }
 
-.modal__input {
+.input {
     padding: 0.8rem 1rem;
     border: 1px solid var(--color-text-light-gray);
     border-radius: 8px;
@@ -298,12 +298,12 @@ body {
     transition: border-color 0.3s ease;
 }
 
-.modal__input:focus {
+.input:focus {
     outline: none;
     border-color: var(--color-primary);
 }
 
-.modal__input--textarea {
+.input--textarea {
     resize: vertical;
     min-height: 100px;
 }
@@ -1008,10 +1008,6 @@ body {
 }
 
 .footer__input {
-    flex-grow: 1;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     background: var(--bg-input-dark);
     color: var(--color-text-inverted-contrast);
 }
