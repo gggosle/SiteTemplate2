@@ -138,6 +138,12 @@ body {
     padding-bottom: 3rem;
 }
 
+.container-static {
+    max-width: var(--width-max-container);
+    margin: 1rem auto;
+    padding: 3rem 1.3rem;
+}
+
 .title {
     font-size: var(--fs-section-title);
     font-weight: var(--fw-semibold);
@@ -379,6 +385,8 @@ body {
     background-color: var(--bg-default);
     transition: background-color 0.5s ease;
 }
+
+
 
 .header__btn {
     margin-right: auto;
@@ -1069,6 +1077,7 @@ body {
     }
     .container {
         padding-top: 1rem;
+        margin: 2.5rem auto;
     }
     .logos__grid {
         flex-wrap: wrap;
@@ -1101,7 +1110,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
     html {
         font-size: 14px;
     }
@@ -1146,6 +1154,9 @@ body {
 @media (max-width: 600px) {
     html {
         font-size: 12px;
+    }
+    .container {
+        margin: 3.5rem auto;
     }
     .logos__grid {
         gap: 0.5rem;
