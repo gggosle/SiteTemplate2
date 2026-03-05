@@ -185,15 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
     burger.addEventListener('click', toggleMenu);
     nextBtn.addEventListener('click', slideToTheLeft);
     prevBtn.addEventListener('click', slideToTheRight);
-    themeBtn.addEventListener('click', changeTheme);
-    window.addEventListener('scroll', handleScroll);
-    backToTopBtn.addEventListener('click', scrollToTop);
-    navLinks.forEach(link => {
-        link.addEventListener('click', handleNavLinkClick);
-    });
-    contactBtn.addEventListener('click', openModal);
-    modalClose.addEventListener('click', closeModal);
-    contactModal.addEventListener('click', handleModalClick);
 
     grid.addEventListener('mousedown', handleDragStart);
     window.addEventListener('mousemove', handleDragMove);
@@ -203,6 +194,17 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('touchmove', handleDragMove, { passive: true });
     window.addEventListener('touchend', handleDragEnd);
 
+    themeBtn.addEventListener('click', changeTheme);
+    window.addEventListener('scroll', handleScroll);
+
+    backToTopBtn.addEventListener('click', scrollToTop);
+    navLinks.forEach(link => {
+        link.addEventListener('click', handleNavLinkClick);
+    });
+    contactBtn.addEventListener('click', openModal);
+    modalClose.addEventListener('click', closeModal);
+    contactModal.addEventListener('click', handleModalClick);
+    
     startSliderAutoScroll();
     if (savedTheme === "dark") {
         changeTheme();
