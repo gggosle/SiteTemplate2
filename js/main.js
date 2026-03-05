@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById("theme-btn");
     const backToTopBtn = document.getElementById("back-to-top");
     const navLinks = document.querySelectorAll('.header__nav-link');
+    const contactBtn = document.getElementById("contact-btn");
+    const contactModal = document.getElementById("contact-modal");
+    const modalClose = document.querySelector(".modal__close");
 
     let isSliderAnimating = false;
     let autoScrollTimer;
@@ -127,21 +130,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function openModal() {
+        contactModal.classList.add('modal--open');
+    }
+
+    function closeModal() {
+        contactModal.classList.remove('modal--open');
+    }
+
+    function handleModalClick(e) {
+        if (e.target === contactModal) {
+            closeModal();
+        }
+    }
+
     burger.addEventListener('click', toggleMenu);
-
     nextBtn.addEventListener('click', slideToTheLeft);
-
     prevBtn.addEventListener('click', slideToTheRight);
-
     themeBtn.addEventListener('click', changeTheme);
-
     window.addEventListener('scroll', handleScroll);
-
     backToTopBtn.addEventListener('click', scrollToTop);
-
     navLinks.forEach(link => {
         link.addEventListener('click', handleNavLinkClick);
     });
+    contactBtn.addEventListener('click', openModal);
+    modalClose.addEventListener('click', closeModal);
+    contactModal.addEventListener('click', handleModalClick);
 
     startAutoScroll();
 });

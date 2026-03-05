@@ -33,11 +33,34 @@
             </ul>
         </nav>
         <div class="header__actions">
-            <a href="#" class="btn btn--primary">Contact</a>
+            <button id="contact-btn" class="btn btn--primary">Contact</button>
         </div>
     </div>
 
 </header>
+
+<div id="contact-modal" class="modal">
+    <div class="modal__content">
+        <button class="modal__close" aria-label="Close modal">&times;</button>
+        <h2 class="modal__title title">Get in Touch</h2>
+        <p class="modal__text text">Have a question or want to work together? Send us a message!</p>
+        <form class="modal__form">
+            <div class="modal__field">
+                <label for="modal-name" class="modal__label">Name</label>
+                <input type="text" id="modal-name" class="modal__input" placeholder="Your Name" required>
+            </div>
+            <div class="modal__field">
+                <label for="modal-email" class="modal__label">Email</label>
+                <input type="email" id="modal-email" class="modal__input" placeholder="Your Email" required>
+            </div>
+            <div class="modal__field">
+                <label for="modal-message" class="modal__label">Message</label>
+                <textarea id="modal-message" class="modal__input modal__input--textarea" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary modal__submit">Send Message</button>
+        </form>
+    </div>
+</div>
 
 <script src="js/main.js"></script>
 
