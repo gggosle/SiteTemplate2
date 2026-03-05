@@ -803,14 +803,18 @@ body {
     gap: 1.9rem;
     width: calc(100% * 3);
     max-width: var(--width-max-projects-grid);
+    cursor: grab;
+    user-select: none;
+}
+
+.projects__grid:active {
+    cursor: grabbing;
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
     width: 33%;
-    cursor: pointer;
-
 }
 
 .project-card__img-wrapper {

@@ -10,16 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactBtn = document.getElementById("contact-btn");
     const contactModal = document.getElementById("contact-modal");
     const modalClose = document.querySelector(".modal__close");
+    const sliderTransition = 'transform 0.4s ease-in-out';
 
     let isSliderAnimating = false;
     let autoScrollTimer;
+    let isDragging = false;
+    let startX;
+    let currentTranslate = 0;
 
     function toggleMenu() {
         burger.classList.toggle('burger--active');
         nav.classList.toggle('header__menu--open');
     }
 
-    function startAutoScroll() {
+    function startSliderAutoScroll() {
         autoScrollTimer = setInterval(() => {
             slideToTheLeft();
         }, 5000);
@@ -31,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetAutoScroll() {
         stopAutoScroll();
-        startAutoScroll();
+        startSliderAutoScroll();
     }
 
     function slideToTheRight() {
@@ -43,10 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         grid.prepend(centerClone);
         grid.style.transition = 'none';
-        grid.style.transform = `translateX(-${moveDistance}px)`;
+        grid.style.transform = `translateX(${- moveDistance + currentTranslate}px)`;
         grid.lastElementChild.remove();
         grid.offsetHeight;
-        grid.style.transition = 'transform 0.4s ease-in-out';
+        grid.style.transition = sliderTransition;
         grid.style.transform = 'translateX(0)';
 
         grid.addEventListener('transitionend', function cleanupWrapper() {
@@ -68,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const moveDistance = getMoveDistance();
         const centerClone = grid.children[1].cloneNode(true);
 
-        grid.style.transition = 'transform 0.4s ease-in-out';
+        grid.style.transition = sliderTransition;
         grid.style.transform = `translateX(-${moveDistance}px)`;
 
         grid.addEventListener('transitionend', function cleanupWrapper() {
@@ -144,6 +148,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function handleDragStart(e) {
+        if (isSliderAnimating) return;
+        stopAutoScroll();
+        isDragging = true;
+        startX = (e.type === 'touchstart') ? e.touches[0].clientX : e.clientX;
+        grid.style.transition = 'none';
+    }
+
+    function handleDragMove(e) {
+        if (!isDragging) return;
+        const x = (e.type === 'touchmove') ? e.touches[0].clientX : e.clientX;
+        currentTranslate = x - startX;
+        grid.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        const moveDistance = getMoveDistance();
+
+        if (currentTranslate < -moveDistance / 2) {
+            slideToTheLeft();
+        } else if (currentTranslate > moveDistance / 2) {
+            slideToTheRight();
+        } else {
+            grid.style.transition = 'transform 0.3s ease-out';
+            grid.style.transform = 'translateX(0)';
+            resetAutoScroll();
+        }
+        currentTranslate = 0;
+    }
+
     burger.addEventListener('click', toggleMenu);
     nextBtn.addEventListener('click', slideToTheLeft);
     prevBtn.addEventListener('click', slideToTheRight);
@@ -157,7 +193,15 @@ document.addEventListener('DOMContentLoaded', () => {
     modalClose.addEventListener('click', closeModal);
     contactModal.addEventListener('click', handleModalClick);
 
-    startAutoScroll();
+    grid.addEventListener('mousedown', handleDragStart);
+    window.addEventListener('mousemove', handleDragMove);
+    window.addEventListener('mouseup', handleDragEnd);
+
+    grid.addEventListener('touchstart', handleDragStart, { passive: true });
+    window.addEventListener('touchmove', handleDragMove, { passive: true });
+    window.addEventListener('touchend', handleDragEnd);
+
+    startSliderAutoScroll();
 });
 
 
