@@ -13,55 +13,59 @@
 </head>
 <body>
 
-<header class="header container">
-    <div class="header__logo"><img src="resources/logo.svg" width="134" height="26" alt="Smart & Go Logo"></div>
-    <button id="theme-btn" class="header__btn btn--primary btn far fa-moon"></button>
-        <button class="menu__burger burger" aria-label="Toggle menu">
-            <span class="burger__line"></span>
-        </button>
+<header id="header" class="header container header__container">
+    <div class="header__logo"><img src="resources/logo.svg" width="134" height="26" alt="Sandbox"></div>
+    <button id="theme-btn" class="header__btn btn--primary btn far fa-moon" aria-label="Toggle dark mode"></button>
+    <button class="menu__burger burger" aria-label="Toggle menu">
+        <span class="burger__line"></span>
+    </button>
 
     <div class="header__menu">
         <nav class="header__nav">
-            <ul class="header__list">
-                <li><a href="#" class="header__link"> <span class="link__text">Demos</span> <img src="resources/arrow.svg"
-                                                                                                 width="9" height="6"
-                                                                                                 alt="Arrow Icon"
-                                                                                                 class="link__icon"></a>
-                </li>
-                <li><a href="#" class="header__link"> <span class="link__text">Pages</span> <img src="resources/arrow.svg"
-                                                                                                 width="9" height="6"
-                                                                                                 alt="Arrow Icon"
-                                                                                                 class="link__icon"></a>
-                </li>
-                <li><a href="#" class="header__link"> <span class="link__text">Projects</span> <img
-                        src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon" class="link__icon"></a>
-                </li>
-                <li><a href="#" class="header__link"> <span class="link__text">Blog</span> <img src="resources/arrow.svg"
-                                                                                                width="9" height="6"
-                                                                                                alt="Arrow Icon"
-                                                                                                class="link__icon"></a>
-                </li>
-                <li><a href="#" class="header__link"> <span class="link__text">Blocks</span> <img src="resources/arrow.svg"
-                                                                                                  width="9" height="6"
-                                                                                                  alt="Arrow Icon"
-                                                                                                  class="link__icon"></a>
-                </li>
-                <li><a href="#" class="header__link"> <span class="link__text">Documentation</span> <img
-                        src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon" class="link__icon"></a>
-                </li>
+            <ul class="header__nav-list">
+                <li><a href="#services" class="header__nav-link">Services</a></li>
+                <li><a href="#strategy" class="header__nav-link">Strategy</a></li>
+                <li><a href="#solutions" class="header__nav-link">Solutions</a></li>
+                <li><a href="#team" class="header__nav-link">Team</a></li>
+                <li><a href="#projects" class="header__nav-link">Projects</a></li>
+                <li><a href="#testimonials" class="header__nav-link">Testimonials</a></li>
+                <li><a href="#faq" class="header__nav-link">FAQ</a></li>
             </ul>
         </nav>
         <div class="header__actions">
-            <a href="#" class="btn btn--primary">Contact</a>
+            <button id="contact-btn" class="btn btn--primary">Contact</button>
         </div>
     </div>
 
 </header>
 
+<div id="contact-modal" class="modal">
+    <div class="modal__content">
+        <button class="modal__close" aria-label="Close modal">&times;</button>
+        <h2 class="modal__title title">Get in Touch</h2>
+        <p class="modal__text text">Have a question or want to work together? Send us a message!</p>
+        <form class="modal__form">
+            <div class="modal__field">
+                <label for="modal-name" class="modal__label">Name</label>
+                <input type="text" id="modal-name" class="modal__input input" placeholder="Your Name" required>
+            </div>
+            <div class="modal__field">
+                <label for="modal-email" class="modal__label">Email</label>
+                <input type="email" id="modal-email" class="modal__input input" placeholder="Your Email" required>
+            </div>
+            <div class="modal__field">
+                <label for="modal-message" class="modal__label">Message</label>
+                <textarea id="modal-message" class="modal__input input--textarea input" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary modal__submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
 <script src="js/main.js"></script>
 
 <main>
-    <section class="hero container">
+    <section id="hero" class="hero container">
         <div class="hero__content">
             <h1 class="hero__title title">A digital agency specializing on <span
                     class="text-highlight">mobile design</span></h1>
@@ -70,7 +74,7 @@
             <a href="#" class="btn btn--primary hero__btn">Get Started</a>
         </div>
         <div class="hero__illustration">
-            <img src="resources/hero.svg" alt="Digital agency team working on mobile design">
+            <img src="resources/hero.svg" alt="Digital agency team working on mobile design" width="724" height="552">
         </div>
     </section>
 
@@ -115,7 +119,7 @@
         </div>
     </section>
 
-    <section class="services bg-gradient--top wave-before">
+    <section id="services" class="services bg-gradient--top wave-before">
         <div class="container">
             <div class="services__header section-header text-center">
                 <span class="subtitle">WHAT WE DO</span>
@@ -156,7 +160,7 @@
         </div>
     </section>
 
-    <section class="strategy container">
+    <section id="strategy" class="strategy container">
         <div class="strategy__content">
             <span class="subtitle">Our Strategy</span>
             <h2 class="strategy__title title">Here are 3 working steps to organize our projects.</h2>
@@ -192,7 +196,7 @@
         </div>
     </section>
 
-    <section class="solutions bg-gradient--bottom wave-after">
+    <section id="solutions" class="solutions bg-gradient--bottom wave-after">
         <div class="container solutions__inner">
             <div class="solutions__illustration">
                 <img src="resources/solutions.svg" width="724" height="552" alt="Business solutions illustration">
@@ -202,34 +206,31 @@
                 <h2 class="solutions__title title">We bring solutions to make life easier.</h2>
 
                 <div class="accordion">
-                    <div class="accordion__item accordion__item--active">
-                        <img class="accordion__icon" src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon">
-                        <h4 class="accordion__title">Professional Design</h4>
+                    <details name="solutions__accordion" class="accordion__item accordion__item--active">
+                        <summary class="accordion__header"><span class="accordion__arrow"></span>Professional Design</summary>
                         <p class="accordion__text text">Fusce dapibus, tellus ac cursus commodo, tortor mauris
                             condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit
                             amet fermentum. Praesent commodo cursus magna, vel.</p>
-                    </div>
-                    <div class="accordion__item ">
-                        <img class="accordion__icon" src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon">
-                        <h4 class="accordion__title">Top-Notch Support</h4>
+                    </details>
+                    <details name="solutions__accordion" class="accordion__item ">
+                        <summary class="accordion__header"> <span class="accordion__arrow"></span>Top-Notch Support</summary>
                         <p class="accordion__text text">Fusce dapibus, tellus ac cursus commodo, tortor mauris
                             condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit
                             amet fermentum. Praesent commodo cursus magna, vel.</p>
-                    </div>
-                    <div class="accordion__item ">
-                        <img class="accordion__icon" src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon">
-                        <h4 class="accordion__title">Header and Slider Options</h4>
+                    </details>
+                    <details name="solutions__accordion" class="accordion__item">
+                        <summary class="accordion__header" ><span class="accordion__arrow"></span>Header and Slider Options</summary>
                         <p class="accordion__text text">Fusce dapibus, tellus ac cursus commodo, tortor mauris
                             condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit
                             amet fermentum. Praesent commodo cursus magna, vel.</p>
-                    </div>
+                    </details>
                 </div>
             </div>
         </div>
 
     </section>
 
-    <section class="team container">
+    <section id="team" class="team container">
         <div class="team__top">
             <div class="team__header">
                 <span class="subtitle">Company Facts</span>
@@ -271,14 +272,14 @@
                 <p class="team-card__role">Financial Analyst</p>
                 <p class="team-card__bio text">Fermentum massa justo sit amet risus morbi leo.</p>
                 <div class="team-card__socials">
-                    <a href="" class="socials__link">
-                        <img src="resources/twitter.svg" width="17" height="14" alt="Twitter">
+                    <a href="" class="socials__link" aria-label="Twitter">
+                        <img src="resources/twitter.svg" width="17" height="14" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/facebook.svg" width="9" height="17" alt="Facebook">
+                    <a href="" class="socials__link" aria-label="Facebook">
+                        <img src="resources/facebook.svg" width="9" height="17" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/ball-social.svg" width="17" height="17" alt="Dribbble">
+                    <a href="" class="socials__link" aria-label="Dribbble">
+                        <img src="resources/ball-social.svg" width="17" height="17" alt="">
                     </a>
                 </div>
             </div>
@@ -289,14 +290,14 @@
                 <p class="team-card__role">Marketing Specialist</p>
                 <p class="team-card__bio text">Fermentum massa justo sit amet risus morbi leo.</p>
                 <div class="team-card__socials">
-                    <a href="" class="socials__link">
-                        <img src="resources/twitter.svg" width="17" height="14" alt="Twitter">
+                    <a href="" class="socials__link" aria-label="Twitter">
+                        <img src="resources/twitter.svg" width="17" height="14" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/facebook.svg" width="9" height="17" alt="Facebook">
+                    <a href="" class="socials__link" aria-label="Facebook">
+                        <img src="resources/facebook.svg" width="9" height="17" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/ball-social.svg" width="17" height="17" alt="Dribbble">
+                    <a href="" class="socials__link" aria-label="Dribbble">
+                        <img src="resources/ball-social.svg" width="17" height="17" alt="">
                     </a>
                 </div>
             </div>
@@ -308,14 +309,14 @@
                 <p class="team-card__role">Sales Manager</p>
                 <p class="team-card__bio text">Fermentum massa justo sit amet risus morbi leo.</p>
                 <div class="team-card__socials">
-                    <a href="" class="socials__link">
-                        <img src="resources/twitter.svg" width="17" height="14" alt="Twitter">
+                    <a href="" class="socials__link" aria-label="Twitter">
+                        <img src="resources/twitter.svg" width="17" height="14" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/facebook.svg" width="9" height="17" alt="Facebook">
+                    <a href="" class="socials__link" aria-label="Facebook">
+                        <img src="resources/facebook.svg" width="9" height="17" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/ball-social.svg" width="17" height="17" alt="Dribbble">
+                    <a href="" class="socials__link" aria-label="Dribbble">
+                        <img src="resources/ball-social.svg" width="17" height="17" alt="">
                     </a>
                 </div>
             </div>
@@ -326,40 +327,49 @@
                 <p class="team-card__role">Investment Planner</p>
                 <p class="team-card__bio text">Fermentum massa justo sit amet risus morbi leo.</p>
                 <div class="team-card__socials">
-                    <a href="" class="socials__link">
-                        <img src="resources/twitter.svg" width="17" height="14" alt="Twitter">
+                    <a href="" class="socials__link" aria-label="Twitter">
+                        <img src="resources/twitter.svg" width="17" height="14" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/facebook.svg" width="9" height="17" alt="Facebook">
+                    <a href="" class="socials__link" aria-label="Facebook">
+                        <img src="resources/facebook.svg" width="9" height="17" alt="">
                     </a>
-                    <a href="" class="socials__link">
-                        <img src="resources/ball-social.svg" width="17" height="17" alt="Dribbble">
+                    <a href="" class="socials__link" aria-label="Dribbble">
+                        <img src="resources/ball-social.svg" width="17" height="17" alt="">
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="projects container">
-        <div class="section-header text-center">
+    <section id="projects" class="projects">
+        <div class="section-header text-center container container--element-top">
             <span class="subtitle">Latest Projects</span>
             <h2 class="projects__title title">Check out some of our awesome projects <br>with creative ideas and great
                 design.</h2>
         </div>
 
+        <div class="container-left-spill">
         <div class="projects__grid">
             <div class="project-card">
                 <div class="project-card__img-wrapper">
-                    <img src="resources/carrousel1.svg" alt="Mobile Design Project" class="project-card__img"
+                    <img src="resources/carrousel3.svg" alt="Stationary Project" draggable="false" class="project-card__img" width="630"
+                         height="410">
+                </div>
+                <h4 class="project-card__title">Tortor Tellus Cursus</h4>
+                <span class="project-card__category">Stationary</span>
+            </div>
+            <div class="project-card">
+                <div class="project-card__img-wrapper">
+                    <img src="resources/carrousel1.svg" alt="Mobile Design Project" draggable="false" class="project-card__img"
                          width="630" height="410">
                 </div>
                 <h4 class="project-card__title">Cras Fermentum Sem</h4>
                 <span class="project-card__category">Mobile Design</span>
             </div>
 
-            <div class="project-card project-card--active">
+            <div class="project-card">
                 <div class="project-card__img-wrapper">
-                    <img src="resources/carrousel2.svg" alt="Web Design Project" class="project-card__img" width="630"
+                    <img src="resources/carrousel2.svg" alt="Web Design Project" draggable="false" class="project-card__img" width="630"
                          height="410">
                 </div>
                 <h4 class="project-card__title">Venenatis Euismod Vehicula</h4>
@@ -368,23 +378,25 @@
 
             <div class="project-card">
                 <div class="project-card__img-wrapper">
-                    <img src="resources/carrousel3.svg" alt="Stationary Project" class="project-card__img" width="630"
+                    <img src="resources/carrousel3.svg" alt="Stationary Project" draggable="false" class="project-card__img" width="630"
                          height="410">
                 </div>
                 <h4 class="project-card__title">Tortor Tellus Cursus</h4>
                 <span class="project-card__category">Stationary</span>
             </div>
+
+        </div>
         </div>
 
-        <div class="projects__nav">
+        <div class="projects__nav container container--element-bottom">
             <button class="nav-btn prev" aria-label="Previous project"><img src="resources/arrow-white.svg" width="12"
-                                                                            height="12" alt="Previous"></button>
+                                                                            height="12" alt=""></button>
             <button class="nav-btn next" aria-label="Next project"><img src="resources/arrow-white.svg" width="12"
-                                                                        height="12" alt="Next"></button>
+                                                                        height="12" alt=""></button>
         </div>
     </section>
 
-    <section class="testimonials bg-gradient--top wave-before">
+    <section id="testimonials" class="testimonials bg-gradient--top wave-before">
         <div class="custom-shape-divider">
         </div>
         <div class="container">
@@ -483,7 +495,7 @@
         </div>
     </section>
 
-    <section class="faq container">
+    <section id="faq" class="faq container">
         <div class="faq__content">
             <span class="subtitle">FAQ</span>
             <h2 class="faq__title title">If you don't see an answer to your question, you can send us an email from our
@@ -493,97 +505,97 @@
             <a href="#" class="btn btn--primary">All FAQ</a>
         </div>
         <div class="faq__accordion accordion">
-            <div class="accordion__item accordion__item--bordered">
-                <img class="accordion__icon" src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon">
-                <h4 class="accordion__title">How do I get my subscription receipt?</h4>
+            <details name="faq__accordion" class="accordion__item accordion__item--bordered">
+                <summary class="accordion__header"><span class="accordion__arrow"></span> How do I get my subscription receipt?</summary>
                 <p class="accordion__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                     fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent
                     commodo cursus magna, vel.</p>
-            </div>
-            <div class="accordion__item accordion__item--bordered">
-                <img class="accordion__icon" src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon">
-                <h4 class="accordion__title">Are there any discounts for people in need?</h4>
+            </details>
+            <details name="faq__accordion" class="accordion__item accordion__item--bordered">
+                <summary class="accordion__header"><span class="accordion__arrow"></span> Are there any discounts for people in need?</summary>
                 <p class="accordion__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                     fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent
                     commodo cursus magna, vel.</p>
-            </div>
-            <div class="accordion__item accordion__item--bordered">
-                <img class="accordion__icon" src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon">
-                <h4 class="accordion__title">Do you offer a free trial edit?</h4>
+            </details>
+            <details name="faq__accordion" class="accordion__item accordion__item--bordered">
+                <summary class="accordion__header"> <span class="accordion__arrow"></span>Do you offer a free trial edit?</summary>
                 <p class="accordion__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                     fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent
                     commodo cursus magna, vel.</p>
-            </div>
-            <div class="accordion__item accordion__item--bordered">
-                <img class="accordion__icon" src="resources/arrow.svg" width="9" height="6" alt="Arrow Icon">
-                <h4 class="accordion__title">How do I reset my Account password?</h4>
+            </details>
+            <details name="faq__accordion" class="accordion__item accordion__item--bordered">
+                <summary class="accordion__header"> <span class="accordion__arrow"></span>How do I reset my Account password?</summary>
                 <p class="accordion__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                     fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent
                     commodo cursus magna, vel.</p>
-            </div>
+            </details>
         </div>
     </section>
 </main>
 
-    <footer class="footer bg-inverted wave-before">
-        <div class="custom-shape-divider">
+<footer class="footer bg-inverted wave-before">
+    <div class="custom-shape-divider">
 
+    </div>
+    <div class="container footer__container">
+        <div class="footer__banner">
+            <h2 class="footer__title title">Join our community by using our services and grow your business.</h2>
+            <a href="#" class="btn btn--primary">Try It For Free</a>
         </div>
-        <div class="container">
-            <div class="footer__banner">
-                <h2 class="footer__title title">Join our community by using our services and grow your business.</h2>
-                <a href="#" class="btn btn--primary">Try It For Free</a>
-            </div>
 
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <div class="footer__logo"><img src="resources/logo-light.svg" alt="Smart & Go Logo Light"></div>
-                    <p class="footer__copyright">© 2023 Sandbox.<br>All rights reserved.</p>
-                    <ul class="footer__socials">
-                        <li><a class="socials__link" href="#" aria-label="Twitter"><img width="20" height="20"
-                                                                                        src="resources/twitter-white.svg"
-                                                                                        alt="Twitter"></a></li>
-                        <li><a class="socials__link" href="#" aria-label="Facebook"><img width="9" height="17"
-                                                                                         src="resources/facebook-white.svg"
-                                                                                         alt="Facebook"></a></li>
-                        <li><a class="socials__link" href="#" aria-label="Dribbble"><img width="17" height="17"
-                                                                                         src="resources/ball-white.svg"
-                                                                                         alt="Dribbble"></a></li>
-                        <li><a class="socials__link" href="#" aria-label="Instagram"><img width="17" height="17"
-                                                                                          src="resources/instagram-white.svg"
-                                                                                          alt="Instagram"></a></li>
-                        <li><a class="socials__link" href="#" aria-label="YouTube"><img width="19" height="13"
-                                                                                        src="resources/youtube-white.svg"
-                                                                                        alt="YouTube"></a></li>
-                    </ul>
-                </div>
-                <div class="footer__col">
-                    <h4 class="footer__col-title title">Get in Touch</h4>
-                    <p class="footer__address">Moonshine St. 14/05<br>Light City, London,<br>United Kingdom</p>
-                    <a href="mailto:info@email.com" class="footer__link">info@email.com</a>
-                    <a href="tel:00(123)4567890" class="footer__link">00 (123) 456 78 90</a>
-                </div>
-                <div class="footer__col">
-                    <h4 class="footer__col-title title">Learn More</h4>
-                    <ul class="footer__links">
-                        <li><a href="#" class="footer__link">About Us</a></li>
-                        <li><a href="#" class="footer__link">Our Story</a></li>
-                        <li><a href="#" class="footer__link">Projects</a></li>
-                        <li><a href="#" class="footer__link">Terms of Use</a></li>
-                        <li><a href="#" class="footer__link">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer__col">
-                    <h4 class="footer__col-title title">Our Newsletter</h4>
-                    <p class="footer__text">Subscribe to our newsletter to get our news & deals delivered to you.</p>
-                    <form class="footer__form">
-                        <input type="email" name="email" placeholder="Email Address" class="footer__input" required>
-                        <button type="submit" class="btn btn--primary footer__btn">Join</button>
-                    </form>
-                </div>
+        <div class="footer__grid">
+            <div class="footer__col">
+                <div class="footer__logo"><img src="resources/logo-light.svg" alt="Smart & Go Logo Light"></div>
+                <p class="footer__copyright">© 2023 Sandbox.<br>All rights reserved.</p>
+                <ul class="footer__socials">
+                    <li><a class="socials__link" href="#" aria-label="Twitter"><img width="20" height="20"
+                                                                                    src="resources/twitter-white.svg"
+                                                                                    alt=""></a></li>
+                    <li><a class="socials__link" href="#" aria-label="Facebook"><img width="9" height="17"
+                                                                                     src="resources/facebook-white.svg"
+                                                                                     alt=""></a></li>
+                    <li><a class="socials__link" href="#" aria-label="Dribbble"><img width="17" height="17"
+                                                                                     src="resources/ball-white.svg"
+                                                                                     alt=""></a></li>
+                    <li><a class="socials__link" href="#" aria-label="Instagram"><img width="17" height="17"
+                                                                                      src="resources/instagram-white.svg"
+                                                                                      alt=""></a></li>
+                    <li><a class="socials__link" href="#" aria-label="YouTube"><img width="19" height="13"
+                                                                                    src="resources/youtube-white.svg"
+                                                                                    alt=""></a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__col-title title">Get in Touch</h4>
+                <p class="footer__address">Moonshine St. 14/05<br>Light City, London,<br>United Kingdom</p>
+                <a href="mailto:info@email.com" class="footer__link">info@email.com</a>
+                <a href="tel:00(123)4567890" class="footer__link">00 (123) 456 78 90</a>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__col-title title">Learn More</h4>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">About Us</a></li>
+                    <li><a href="#" class="footer__link">Our Story</a></li>
+                    <li><a href="#" class="footer__link">Projects</a></li>
+                    <li><a href="#" class="footer__link">Terms of Use</a></li>
+                    <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__col-title title">Our Newsletter</h4>
+                <p class="footer__text">Subscribe to our newsletter to get our news & deals delivered to you.</p>
+                <form class="footer__form">
+                    <input type="email" name="email" placeholder="Email Address" class="footer__input input" required>
+                    <button type="submit" class="btn btn--primary footer__btn">Join</button>
+                </form>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
+<button id="back-to-top" class="btn btn--primary back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
 
 </body>
 </html>
