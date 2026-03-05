@@ -383,7 +383,8 @@ body {
 }
 
 .header__container {
-    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .header__btn {
