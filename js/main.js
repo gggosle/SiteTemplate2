@@ -7,10 +7,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById("theme-btn");
 
     let isSliderAnimating = false;
+    let autoScrollTimer;
 
     function openMenu() {
         burger.classList.toggle('burger--active');
         nav.classList.toggle('header__menu--open');
+    }
+
+    function startAutoScroll() {
+        autoScrollTimer = setInterval(() => {
+            slideToTheLeft();
+        }, 5000);
+    }
+
+    function stopAutoScroll() {
+        clearInterval(autoScrollTimer);
+    }
+
+    function resetAutoScroll() {
+        stopAutoScroll();
+        startAutoScroll();
     }
 
     function slideToTheRight() {
@@ -37,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function handlePrev() {
         grid.removeEventListener('transitionend', handlePrev);
         isSliderAnimating = false;
+        resetAutoScroll();
     }
 
     function slideToTheLeft() {
@@ -61,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.style.transition = 'none';
         grid.style.transform = 'translateX(0)';
         isSliderAnimating = false;
+        resetAutoScroll();
     }
 
     function getMoveDistance() {
@@ -84,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeBtn.addEventListener('click', changeTheme);
 
+    startAutoScroll();
 });
 
 
