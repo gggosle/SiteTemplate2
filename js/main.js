@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.nav-btn.prev');
     const nextBtn = document.querySelector('.nav-btn.next');
     const themeBtn = document.getElementById("theme-btn");
+    const backToTopBtn = document.getElementById("back-to-top");
 
     let isSliderAnimating = false;
     let autoScrollTimer;
@@ -94,6 +95,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute("data-theme", newTheme);
     }
 
+    function handleScroll() {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('back-to-top--show');
+        } else {
+            backToTopBtn.classList.remove('back-to-top--show');
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
     burger.addEventListener('click', openMenu);
 
     nextBtn.addEventListener('click', slideToTheLeft);
@@ -101,6 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtn.addEventListener('click', slideToTheRight);
 
     themeBtn.addEventListener('click', changeTheme);
+
+    window.addEventListener('scroll', handleScroll);
+
+    backToTopBtn.addEventListener('click', scrollToTop);
 
     startAutoScroll();
 });
