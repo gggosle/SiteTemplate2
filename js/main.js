@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactModal = document.getElementById("contact-modal");
     const modalClose = document.querySelector(".modal__close");
     const sliderTransition = 'transform 0.4s ease-in-out';
+    const savedTheme = localStorage.getItem("theme");
 
     let isSliderAnimating = false;
     let autoScrollTimer;
@@ -101,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentTheme = document.documentElement.getAttribute("data-theme");
         const newTheme = currentTheme === "dark" ? "" : "dark";
         document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
     }
 
     function handleScroll() {
@@ -202,6 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('touchend', handleDragEnd);
 
     startSliderAutoScroll();
+    if (savedTheme === "dark") {
+        changeTheme();
+    }
 });
 
 
